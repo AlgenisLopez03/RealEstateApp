@@ -1,0 +1,32 @@
+﻿@model RealEstateApp.Core.Application.ViewModels.User.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="bg-login d-flex justify-content-center align-items-center flex-column mb-3">
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form asp-action="Login">
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label">Nombre de usuario</label>
+                            <input class="form-control" asp-for="UserName">
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Contraseña</label>
+                            <input class="form-control" asp-for="Password">
+                        </div>
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <button type="submit" class="btn btn-primary text-end">Iniciar sesión</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

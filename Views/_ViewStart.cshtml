@@ -1,0 +1,21 @@
+﻿﻿@using Microsoft.AspNetCore.Http
+@using RealEstateApp.Core.Application.Dtos.Account.Response.Authentications;
+@using RealEstateApp.Core.Application.Helpers;
+@using RealEstateApp.Core.Application.Enums;
+
+
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    var User = httpContextAccessor.HttpContext.Session.Get<AuthenticationWResponse>("user");
+}
+
+@{
+    @if (User != null && User.Roles.Any(role => role == Roles.Admin.ToString() || role == Roles.Agent.ToString()))
+    {
+        Layout = "_LoggedLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

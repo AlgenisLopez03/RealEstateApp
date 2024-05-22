@@ -1,0 +1,102 @@
+﻿@using RealEstateApp.Core.Application.ViewModels.Property;
+@using RealEstateApp.Core.Application.Dtos.Account.Response.Authentications;
+@using RealEstateApp.Core.Application.Helpers;
+
+@model  SavePropertyViewModel;
+@{
+    bool editMode = Model.Id == 0 ? true : false;
+    ViewData["Title"] = "Guardar Property";
+}
+
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    var User = httpContextAccessor.HttpContext.Session.Get<AuthenticationWResponse>("user");
+}
+
+
+@if (Model.PropertyTypes == null || !Model.PropertyTypes.Any() || Model.Improvements == null || !Model.Improvements.Any() || Model.SellTypes == null || !Model.SellTypes.Any())
+{
+    <div class="bg-img-2 d-flex justify-content-center align-items-center flex-column vh-100">
+        <h1 class="display-4">Real State App</h1>
+        <p class="alert alert-danger lead" role="alert">No se pueden crear o actualizar propiedades porque uno o más tipos no existen.</p>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? "Creando una nueva Property" : $"Editando la Property: {Model.Code}")</h4>
+                </div>
+                <div class="card-body">
+
+                    <form method="post" asp-controller="Property" asp-action="@(editMode ? "Create" : "Edit")" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="AgentId" value="@User.Id" class="form-control" />
+                        <div class="form-group">
+                            <label asp-for="Description"></label>
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="SellTypeId"></label>
+                            <select asp-for="SellTypeId" asp-items="@(new SelectList(Model.SellTypes, "Id", "Name"))" class="form-control">
+                                <option value="">Seleccione un tipo de venta</option>
+                            </select>
+                            <span asp-validation-for="SellTypeId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PropertyTypeId"></label>
+                            <select asp-for="PropertyTypeId" asp-items="@(new SelectList(Model.PropertyTypes, "Id", "Name"))" class="form-control">
+                                <option value="">Seleccione un tipo de propiedad</option>
+                            </select>
+                            <span asp-validation-for="PropertyTypeId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Price"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FieldSize"></label>
+                            <input asp-for="FieldSize" class="form-control" />
+                            <span asp-validation-for="FieldSize" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Rooms"></label>
+                            <input asp-for="Rooms" class="form-control" />
+                            <span asp-validation-for="Rooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Bathrooms"></label>
+                            <input asp-for="Bathrooms" class="form-control" />
+                            <span asp-validation-for="Bathrooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Images"></label>
+                            <input asp-for="Images" type="file" multiple class="form-control" />
+                            <span asp-validation-for="Images" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ImprovementsId"></label>
+                            <select asp-for="ImprovementsId" asp-items="@(new SelectList(Model.Improvements, "Id", "Name"))" multiple class="form-control">
+                            </select>
+                            <span asp-validation-for="ImprovementsId" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a asp-controller="Property" asp-action="Index" class="btn btn-warning">Volver atrás</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

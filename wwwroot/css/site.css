@@ -1,0 +1,66 @@
+html, body {
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.bg-img {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5),rgba(0,0,0,0.5)), url('https://wallpapers.com/images/hd/real-estate-modern-white-house-dcxpp5xsw4e7wqgc.jpg');
+    height: 75vh;
+    background-size: cover;
+}
+
+.bg-login {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5),rgba(0,0,0,0.5)), url('https://wallpapers.com/images/hd/real-estate-modern-white-house-dcxpp5xsw4e7wqgc.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: ;
+}
+
+.bg-img-2 {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5),rgba(0,0,0,0.5)), url('https://exprealty.com/wp-content/uploads/Guide-to-Becoming-a-Real-Estate-Agent-in-the-U.S..jpg');
+    height: 75vh;
+    background-size: cover;
+}
+
+::placeholder {
+    font-size: 16px;
+}
+
+.rounded-4 {
+    border-radius: 20px;
+}
+
+.rounded-5 {
+    border-radius: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .box-area {
+        margin: 0 10px;
+    }
+
+    .left-box {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+}
+

@@ -1,0 +1,44 @@
+﻿@using RealEstateApp.Core.Application.Dtos.Account.Response.Authentications;
+@using RealEstateApp.Core.Application.Helpers;
+@using RealEstateApp.Core.Application.Enums;
+
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    var User = httpContextAccessor.HttpContext.Session.Get<AuthenticationWResponse>("user");
+}
+
+@model string
+@{
+    ViewData["Title"] = "Acceso Denegado";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="text-black">Acceso Denegado</h1>
+        <p class="text-black">No tienes permiso para acceder a esta página.</p>
+        @if(User == null)
+        {
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                <span>Regresar al inicio</span>
+            </a>
+        }
+        else if (User.Roles.Any(role => role == Roles.Admin.ToString()))
+        {
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">
+                <span>Regresar al inicio</span>
+            </a>
+        }
+        else if (User.Roles.Any(role => role == Roles.Agent.ToString()))
+        {
+            <a asp-controller="Agent" asp-action="Index" class="btn btn-primary">
+                <span>Regresar al inicio</span>
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                <span>Regresar al inicio</span>
+            </a>
+        }
+    </div>
+</div>

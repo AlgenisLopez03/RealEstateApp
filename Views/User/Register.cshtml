@@ -1,0 +1,83 @@
+﻿@using RealEstateApp.Core.Application.Enums;
+@model RealEstateApp.Core.Application.ViewModels.User.RegisterViewModel;
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="bg-login d-flex justify-content-center align-items-center flex-column mb-5">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="col-md-5">
+            <div class="card pt-1">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center">Únete a la App</h2>
+                    <hr>
+                    <form asp-action="Register" method="post" enctype="multipart/form-data">
+                        <div class="mb-3 row">
+                            <div class="col">
+                                <label for="FirstName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="FirstName" name="FirstName" required>
+                            </div>
+                            <div class="col">
+                                <label for="LastName" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="LastName" name="LastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="Email" name="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="PhoneNumber" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="PersonalId" class="form-label">Número de Identificación</label>
+                            <input type="text" class="form-control" id="PersonalId" name="PersonalId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="UserName" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" required>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col">
+                                <label for="Password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="Password" name="Password" required>
+                            </div>
+                            <div class="col">
+                                <label for="ConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="TypeUser" class="form-label">Tipo de Usuario</label>
+                            <select class="form-control" id="TypeUser" name="TypeUser">
+                                <option value="">Seleccione un rol</option>
+                                <option value="@Roles.Client">Cliente</option>
+                                <option value="@Roles.Agent">Agente</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Image" class="form-label">Imagen</label>
+                            <input type="file" class="form-control" id="Image" name="Image" required>
+                        </div>
+                        @if (Model.HasError)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <p>@Model.Error</p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

@@ -1,0 +1,112 @@
+﻿﻿@using Microsoft.AspNetCore.Http
+@using RealEstateApp.Core.Application.Dtos.Account.Response.Authentications;
+@using RealEstateApp.Core.Application.Helpers;
+@using RealEstateApp.Core.Application.Enums;
+
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    var User = httpContextAccessor.HttpContext.Session.Get<AuthenticationWResponse>("user");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RealEstateApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/loggedsite.css" asp-append-version="true" />
+</head>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div> @User.FirstName @User.LastName </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            @if (User.Roles.Any(role => role == Roles.Admin.ToString()))
+            {
+                <div>
+                    <a asp-controller="Home" asp-action="Index" class="nav_logo">
+                        <i class='bx bx-layer nav_logo-icon'></i>
+                        <span class="nav_logo-name">Real Estate App</span>
+                    </a>
+                    <div class="nav_list">
+                        <a asp-controller="Admin" asp-action="Index" class="nav_link active">
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">Dashboard</span>
+                        </a>
+                        <a asp-controller="Admin" asp-action="Index" class="nav_link">
+                            <i class='bx bx-user nav_icon'></i>
+                            <span class="nav_name">Agentes</span>
+                        </a>
+                        <a asp-controller="Admin" asp-action="Index" class="nav_link">
+                            <i class='bx bx-message-square-detail nav_icon'></i>
+                            <span class="nav_name">Administradores</span>
+                        </a>
+                        <a asp-controller="Home" asp-action="Index" class="nav_link">
+                            <i class='bx bx-bookmark nav_icon'></i>
+                            <span class="nav_name">Desarrolladores</span>
+                        </a>
+                        <a asp-controller="Improvement" asp-action="Index" class="nav_link">
+                            <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                            <span class="nav_name">Mejoras</span>
+                        </a>
+                        <a asp-controller="SellType" asp-action="Index" class="nav_link">
+                            <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                            <span class="nav_name">Tipos de Venta</span>
+                        </a>
+                        <a asp-controller="PropertyType" asp-action="Index" class="nav_link">
+                            <i class='bx bx-folder nav_icon'></i>
+                            <span class="nav_name">Tipos de Propiedad</span>
+                        </a>
+                    </div>
+                </div>
+                <a asp-controller="User" asp-action="LogOut" class="nav_link">
+                    <i class='bx bx-log-out nav_icon'></i>
+                    <span class="nav_name">Cerrar Sesion</span>
+                </a>
+            }
+            else if (User.Roles.Any(role => role == Roles.Agent.ToString()))
+            {
+                <div>
+                    <a asp-controller="Agent" asp-action="Index" class="nav_logo">
+                        <i class='bx bx-layer nav_logo-icon'></i>
+                        <span class="nav_logo-name">Real Estate App</span>
+                    </a>
+                    <div class="nav_list">
+                        <a asp-controller="Agent" asp-action="Index" class="nav_link active">
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">Home</span>
+                        </a>
+                        <a asp-controller="Agent" asp-action="Info" class="nav_link">
+                            <i class='bx bx-folder nav_icon'></i>
+                            <span class="nav_name">Mi Perfil</span>
+                        </a>
+                        <a asp-controller="Property" asp-action="Index" class="nav_link">
+                            <i class='bx bx-folder nav_icon'></i>
+                            <span class="nav_name">Propiedades</span>
+                        </a>
+                    </div>
+                </div>
+                <a asp-controller="User" asp-action="LogOut" class="nav_link">
+                    <i class='bx bx-log-out nav_icon'></i>
+                    <span class="nav_name">Cerrar Sesion</span>
+                </a>
+            }
+        </nav>
+    </div>
+    <div class="height-100">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/loggedsite.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

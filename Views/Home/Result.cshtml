@@ -1,0 +1,33 @@
+﻿@using RealEstateApp.Core.Application.ViewModels.Property;
+@model IEnumerable<PropertyViewModel>;
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+                    @foreach (var property in Model)
+                    {
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <h5>@property.Code</h5>
+                                @if (property.Gallery != null && property.Gallery.Any())
+                                {
+                                    <img src="/images/property/@property.Code/@property.Gallery.FirstOrDefault().ImageUrl" class="card-img-top" alt="Imagen de la propiedad">
+                                }
+                            </div>
+                            <div class="col-md-9 custom-white-text">
+                                <h5>Descripción</h5>
+                                <h5 class="card-title">@property.Code</h5>
+                                <p class="card-text">Precio: @property.Price</p>
+                                <p class="card-text">Tipo de propiedad: @property.PropertyType.Name</p>
+                                <p class="card-text">Tipo de venta: @property.SellType.Name</p>
+                                <p class="card-text">Tamaño del terreno: @property.FieldSize</p>
+                                <p class="card-text">Baños: @property.Bathrooms</p>
+                                <p class="card-text">Habitaciones: @property.Rooms</p>
+                                <p class="card-text">Descripción: @property.Description</p>
+                                <p class="card-text">Agente: @property.Agent.Name</p>
+
+                                <a asp-controller="Home" asp-action="Index" class="btn btn-warning">Volver atrás</a>
+                            </div>
+                        </div>
+                    }
