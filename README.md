@@ -52,3 +52,19 @@ debe decirle que no tiene permiso para usar la web app.
 * Si se intenta iniciar sesión con un usuario tipo cliente o agente en el web api
 26
 debe decirle que no tiene permiso para usar el web api.
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/3d7f9705-2016-4016-89e0-eb245eaf42ad)
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/5a889bb2-5bdd-497e-904c-f8baabaa02b3)
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/e9b33233-eafa-4505-9ae7-ee66c8c6c850)
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/2e57bfc6-5cd8-4040-84f7-a2e2845d104a)
+##Agente
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/ddd1b5c7-0af2-43bc-aec3-f167df1b1e2a)
+
+## Api
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/fb9d478b-fd8f-4a2b-b3cb-3c1250a50df3)
+
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/84a7e462-ac5a-4e87-954a-27ad8407531b)
+
+![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/b8c7183b-dcea-473d-8b97-62b93752afb7)
+
+
+
