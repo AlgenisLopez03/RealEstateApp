@@ -75,12 +75,12 @@ Las validaciones de este formulario que todos los campos son requeridos<br><br>
 Si el usuario que inicio sesión es del rol administrador el sistema lo debe
 redireccionar a la pantalla inicial de un administrador se mostrará un menú con
 las siguientes opciones:
-* Home del administrador
-* Listado de los agentes
-* Mantenimiento de administradores
-* Mantenimiento de desarrolladores
-* Mantenimiento de tipo de propiedades
-* Mantenimiento de tipo de ventas
+* Home del administrador<br><br>
+* Listado de los agentes<br><br>
+* Mantenimiento de administradores<br><br>
+* Mantenimiento de desarrolladores<br><br>
+* Mantenimiento de tipo de propiedades<br><br>
+* Mantenimiento de tipo de ventas<br><br>
 * Mantenimiento de mejoras<br><br>
 
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/e9b33233-eafa-4505-9ae7-ee66c8c6c850)
