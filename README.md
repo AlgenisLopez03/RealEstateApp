@@ -58,16 +58,16 @@ propiedades creadas en el sistema listadas desde la más reciente a la más
 antigua.
 De las propiedades se debe mostrar la siguiente informaciones, Tipo de
 propiedad(apartamento,casa, etc.), una imagen de la propiedad, el código de la
-propiedad, el tipo de venta de esa propiedad (alquiler, venta , etc),
+propiedad, el tipo de venta de esa propiedad (alquiler, venta , etc),<br><br>
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/3d7f9705-2016-4016-89e0-eb245eaf42ad)
-Login:
+Login:<br><br>
 Al ingresar a la opción de inicio de sesión desde el menú principal de la app,
 esta nos enviará a una pantalla con un formulario para poder hacer esta acción.
 Aquí debe haber un formulario con los siguientes campos: correo o nombre de
 usuario y un campo para la contraseña y un botón para iniciar sesión.
-Las validaciones de este formulario que todos los campos son requeridos
+Las validaciones de este formulario que todos los campos son requeridos<br><br>
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/5a889bb2-5bdd-497e-904c-f8baabaa02b3)
-Administrador
+Administrador<br><br>
 Si el usuario que inicio sesión es del rol administrador el sistema lo debe
 redireccionar a la pantalla inicial de un administrador se mostrará un menú con
 las siguientes opciones:
@@ -77,9 +77,17 @@ las siguientes opciones:
 ● Mantenimiento de desarrolladores
 ● Mantenimiento de tipo de propiedades
 ● Mantenimiento de tipo de ventas
-● Mantenimiento de mejoras
+● Mantenimiento de mejoras<br><br>
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/e9b33233-eafa-4505-9ae7-ee66c8c6c850)
+<br><br>
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/2e57bfc6-5cd8-4040-84f7-a2e2845d104a)
+Home del cliente<br><br>
+Si el usuario que inicio sesión es del rol cliente el sistema lo debe redireccionar a la
+pantalla de home de la app donde se listan todas las propiedades creadas en el
+sistema.Lo que sí debe variar en este listado de propiedades del home es que el
+usuario debe poder visualizar un botón en cada propiedad del listado con la que
+pueda marcar o desmarcar esa propiedad como favorita.
+<br><br>
 ![image](https://github.com/AlgenisLopez03/RealEstateApp/assets/141606823/ddd1b5c7-0af2-43bc-aec3-f167df1b1e2a)
 
 ## Api
