@@ -32,26 +32,26 @@ Seguridad (17): Funcionalidades relacionadas con la seguridad del sistema, como 
 Funcionalidades del API (18): Capacidades relacionadas con la interfaz de programación de aplicaciones (API) que pueden utilizarse para integrar el sistema con otros sistemas o servicios externos.
 
 <h2>Requerimientos técnicos</h2>
-* Deben utilizar viewmodels y las validaciones se deben realizar desde los mismos.
-* Se debe usar Entity framework con code first para la persistencia de los datos.
-* El proyecto tiene que ser visualmente entendible (Usar bootstrap).
-* El proyecto debe usar la arquitectura ONION (Esta se debe aplicar correctamente
-al 100%, en caso de algún error en la misma se considerará que esta incorrecta).
-* Se deben utilizar repositorio y servicio genéricos.
-* Se deben usar identity para el manejo de los usuarios.
-* Se deben usar automapper para el mapeo de los viewmodels, entities y dtos.
-* Se deben usar identity para el manejo de los usuarios y de la seguridad de api
+* Deben utilizar viewmodels y las validaciones se deben realizar desde los mismos.<br><br>
+* Se debe usar Entity framework con code first para la persistencia de los datos.<br><br>
+* El proyecto tiene que ser visualmente entendible (Usar bootstrap).<br><br>
+* El proyecto debe usar la arquitectura ONION (Esta se debe aplicar correctamente<br><br>
+al 100%, en caso de algún error en la misma se considerará que esta incorrecta).<br><br>
+* Se deben utilizar repositorio y servicio genéricos.<br><br>
+* Se deben usar identity para el manejo de los usuarios.<br><br>
+* Se deben usar automapper para el mapeo de los viewmodels, entities y dtos.<br><br>
+* Se deben usar identity para el manejo de los usuarios y de la seguridad de api<br><br>
 con JWT.
-* Se deben usar los patrones de diseño de CQRS y Mediator.
-* Se deben documentar las api usando las facilidades que provee swagger.
-* Todos los precios de las propiedades serán en peso dominicano.
+* Se deben usar los patrones de diseño de CQRS y Mediator.<br><br>
+* Se deben documentar las api usando las facilidades que provee swagger.<br><br>
+* Todos los precios de las propiedades serán en peso dominicano.<br><br>
 * Todas las pantallas donde se listan propiedades deben tener los mismos filtros
-descritos en la sección de home del documento.
+descritos en la sección de home del documento.<br><br>
 * Si se intenta iniciar sesión con un usuario tipo desarrollador en el web app
-debe decirle que no tiene permiso para usar la web app.
+debe decirle que no tiene permiso para usar la web app.<br><br>
 * Si se intenta iniciar sesión con un usuario tipo cliente o agente en el web api
 26
-debe decirle que no tiene permiso para usar el web api.
+debe decirle que no tiene permiso para usar el web api.<br><br>
 
 <h2>Home</h2>
 Esta es la pantalla inicial del sistema, en esta pantalla se deben listar todas las
